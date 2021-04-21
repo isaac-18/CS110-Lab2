@@ -10,7 +10,17 @@
   <body>
 
     <h1>Tic Tac Toe</h1>
-    <h2>Its your turn, <span class="display_player">X</span>.</h2>
+
+    <div class="game_info">
+      <h2><u>Scores</u></h2>
+      <ul id="scores">
+        <li>X: <span class="x_score">0</span></li>
+        <li>O: <span class="o_score">0</span></li>
+      </ul>
+      <h2>Its your turn, <span class="display_player">X</span>.</h2>
+      <!-- <p><span id="result"></span></p> -->
+      <p><span class="result"></span></p>
+    </div>
 
     <div class="game_board">
       <div class='row'>
@@ -30,8 +40,8 @@
       </div>
     </div>
 
-    <button class="new_game">New Game</button>
-    <button class="reset">Reset</button>
+    <button class="new_game" onclick="newGame()">New Game</button>
+    <button class="reset" onclick="reset()">Reset</button>
   </body>
 
 
