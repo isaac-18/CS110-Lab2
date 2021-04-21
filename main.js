@@ -13,6 +13,7 @@ function play(squareNum) {
         return;
     }
 
+    // if (!gameOver) {
     if (moves < 9 && !gameOver) {
         if (xTurn) {
             board[squareNum - 1].innerHTML = "X"; 
@@ -24,7 +25,15 @@ function play(squareNum) {
             xTurn = true;
             document.getElementsByClassName("display_player")[0].innerHTML = "X";
         }
+        
         moves++;
+        if (moves >= 9) {
+            // Tie and game over
+            console.log('hello')
+            document.getElementById('result').innerHTML = 'Tie game';
+            gameOver = true;
+            return;
+        }
 
         if (won()) {
             console.log("Someone won")
@@ -32,25 +41,20 @@ function play(squareNum) {
             if (xTurn == false) {
                 xScore++;
                 document.querySelector('.x_score').innerHTML = xScore;
-                // document.getElementById('#result').innerHTML = 'X won!';
-                document.querySelector('result').innerHTML = 'X won!';
+                document.getElementById('result').innerHTML = 'X won!';
                 console.log("X won");
             }
             else {
                 oScore++;
                 document.querySelector('.o_score').innerHTML = oScore;
-                // document.getElementById('#result').innerHTML = 'O won!';
-                document.querySelector('result').innerHTML = 'O won!';
+                document.getElementById('result').innerHTML = 'O won!';
                 console.log("O won");
             }
             gameOver = true;
         }
+
     }
-    else {
-        // Tie and game over
-        // document.getElementById('#result').innerHTML = 'Tie game';
-        document.querySelector('result').innerHTML = 'Tie game';
-    }
+    // }
 }
 
 // Kinda janky but should scalable. Just need to add board size
@@ -94,6 +98,7 @@ function newGame() {
 
     document.querySelector('.x_score').innerHTML = xScore;
     document.querySelector('.o_score').innerHTML = oScore;
+    document.getElementById('result').innerHTML = "";
 
     document.getElementsByClassName("display_player")[0].innerHTML = "X";
 
@@ -109,6 +114,7 @@ function reset() {
     gameOver = false;
     
     document.getElementsByClassName("display_player")[0].innerHTML = "X";
+    document.getElementById('result').innerHTML = "";
     
     for (var i = 0; i < board.length; i++) {
         board[i].innerHTML = "";

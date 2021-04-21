@@ -17,6 +17,15 @@ h1 {
   align-items: center;
 }
 
+.game_info h2 {
+  margin: 10px;
+}
+
+.game_info p {
+  margin: 8px;
+  font-size: 1.5em;
+}
+
 #scores {
   list-style: none;
   padding: 0;
