@@ -7,14 +7,12 @@ var gameOver = false;
 var ai_off = false;
 
 function play(squareNum) {
-    // console.log(squareNum)
 
     // Spot already taken
     if (board[squareNum - 1].innerHTML != "") {
         return;
     }
 
-    // if (!gameOver) {
     if (moves < 9 && !gameOver) {
         if (xTurn) {
             board[squareNum - 1].innerHTML = "X"; 
@@ -48,36 +46,13 @@ function play(squareNum) {
             }
         }
         
-
-        console.log('Moves: ' + moves)
         if (moves >= 9) {
             // Tie and game over
-            console.log('hello')
             document.getElementById('result').innerHTML = 'Tie game';
             gameOver = true;
             return;
         }
-
-        // if (won()) {
-        //     console.log("Someone won")
-        //     // Last move was X's so X won
-        //     if (xTurn == false) {
-        //         xScore++;
-        //         document.querySelector('.x_score').innerHTML = xScore;
-        //         document.getElementById('result').innerHTML = 'X won!';
-        //         console.log("X won");
-        //     }
-        //     else {
-        //         oScore++;
-        //         document.querySelector('.o_score').innerHTML = oScore;
-        //         document.getElementById('result').innerHTML = 'O won!';
-        //         console.log("O won");
-        //     }
-        //     gameOver = true;
-        // }
-
     }
-    // }
 }
 
 // Kinda janky but should scalable. Just need to add board size
@@ -178,21 +153,9 @@ function ai() {
 }
 
 function ai_play() {
-    // randomSquare = Math.floor(Math.random() * 9);
-    // while (board[randomSquare].innerHTML != "") {
-    //     console.log("Chose: " + randomSquare);
-    //     randomSquare = Math.floor(Math.random() * 9);
-    // }
-    // board[randomSquare].innerHTML = "O"
-    // xTurn = true;
-    // document.getElementsByClassName("display_player")[0].innerHTML = "X";
-
     var indexes = Array.from(Array(board.length).keys());
     var availableIndexes = indexes.filter((index) => board[index].innerHTML == "");
     var selectedIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
-
-    // console.log(availableIndexes);
-    // console.log(selectedIndex);
 
     board[selectedIndex].innerHTML = "O"
     xTurn = true;
