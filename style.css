@@ -46,7 +46,7 @@ h1 {
 }
 
 /* Button: NewGame and Reset */
-.new_game, .reset {
+.new_game, .reset, #ai_control {
   text-align:center;
   background-color: #ff8c00;
   color: #000000;
@@ -58,7 +58,7 @@ h1 {
   margin: 20px auto;
 }
 
-.new_game:hover, .reset {
+.new_game:hover, .reset:hover, #ai_control:hover {
   background-color: orange;
 }
 
