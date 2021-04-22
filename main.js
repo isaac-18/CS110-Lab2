@@ -157,7 +157,12 @@ function ai_play() {
     var availableIndexes = indexes.filter((index) => board[index].innerHTML == "");
     var selectedIndex = availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
 
-    board[selectedIndex].innerHTML = "O"
+    if (selectedIndex == null) {
+        gameOver = true;
+        return;
+    }
+
+    board[selectedIndex].innerHTML = "O";
     xTurn = true;
     document.getElementsByClassName("display_player")[0].innerHTML = "X";
 }
